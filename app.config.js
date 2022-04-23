@@ -36,14 +36,12 @@ export default {
     assetBundlePatterns: ["**/*"],
     ios: {
       supportsTablet: true,
-      bundleIdentifier: "com.leiteszeke.ezequielito",
     },
     android: {
       adaptiveIcon: {
         foregroundImage: "./assets/images/adaptive-icon.png",
         backgroundColor: "#ffffff",
       },
-      package: "com.leites25.ezequielito",
     },
     web: {
       favicon: "./assets/images/favicon.png",

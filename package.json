@@ -7,7 +7,10 @@
     "ios": "expo run:ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "build:ios": "eas build -p ios",
+    "build:android": "eas build -p android",
+    "build:all": "eas build -p all"
   },
   "jest": {
     "preset": "jest-expo"
@@ -29,6 +32,7 @@
     "expo-random": "~12.1.1",
     "expo-splash-screen": "~0.14.0",
     "expo-status-bar": "~1.2.0",
+    "expo-updates": "~0.11.6",
     "expo-web-browser": "~10.1.0",
     "native-base": "^3.4.3",
     "react": "17.0.1",
@@ -44,6 +48,7 @@
     "@babel/core": "^7.12.9",
     "@types/react": "17.0.21",
     "@types/react-native": "~0.64.12",
+    "dotenv": "^16.0.0",
     "jest": "^26.6.3",
     "jest-expo": "~44.0.1",
     "react-test-renderer": "17.0.1",
