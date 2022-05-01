@@ -4,9 +4,12 @@ import React, { useEffect } from "react";
 import * as Google from "expo-auth-session/providers/google";
 import Constants from "expo-constants";
 import { useAuth } from "../../hooks/useAuth";
+import * as WebBrowser from "expo-web-browser";
 
 const { expoClientId, iosClientId, androidClientId, webClientId } =
   Constants.manifest?.extra ?? {};
+
+WebBrowser.maybeCompleteAuthSession();
 
 export default function LoginScreen() {
   const { setUser } = useAuth();
