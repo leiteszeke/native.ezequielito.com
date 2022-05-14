@@ -1,4 +1,3 @@
-import AppLoading from "expo-app-loading";
 import * as SplashScreen from "expo-splash-screen";
 import { Asset } from "expo-asset";
 import Constants from "expo-constants";
@@ -19,6 +18,8 @@ const AnimatedSplash = ({ children }: PropsWithChildren<{}>) => {
   const startAsync = useCallback(
     // If you use a local image with require(...), use `Asset.fromModule`
     async () => {
+      await SplashScreen.preventAutoHideAsync();
+
       Asset.fromModule(image).downloadAsync();
     },
     []
@@ -26,16 +27,21 @@ const AnimatedSplash = ({ children }: PropsWithChildren<{}>) => {
 
   const onFinish = useCallback(() => setSplashReady(true), []);
 
-  if (!isSplashReady) {
-    return (
-      <AppLoading
-        autoHideSplash={false}
-        startAsync={startAsync}
-        onError={console.error}
-        onFinish={onFinish}
-      />
-    );
-  }
+  const startLoading = async () => {
+    try {
+      SplashScreen.preventAutoHideAsync();
+
+      await startAsync();
+
+      onFinish();
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  useEffect(() => {
+    startLoading();
+  }, []);
 
   return <Splash image={image}>{children}</Splash>;
 };

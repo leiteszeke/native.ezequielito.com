@@ -10,7 +10,6 @@ import {
   HStack,
   Spacer,
 } from "native-base";
-import AppLoading from "expo-app-loading";
 import { useQuery } from "@apollo/client";
 import api from "../../api";
 
@@ -20,7 +19,7 @@ export default function TasksScreen() {
   });
 
   if (loading) {
-    return <AppLoading />;
+    return null;
   }
 
   const renderItem = ({ item }: any) => {

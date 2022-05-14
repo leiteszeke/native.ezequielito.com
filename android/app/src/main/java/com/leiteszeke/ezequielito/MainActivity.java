@@ -1,4 +1,4 @@
-package com.leites25.ezequielito;
+package com.leiteszeke.ezequielito;
 
 import android.os.Build;
 import android.os.Bundle;
