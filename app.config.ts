@@ -47,6 +47,16 @@ export default {
     },
     web: {
       favicon: "./assets/images/favicon.png",
+      bundler: "metro",
     },
+    plugins: [
+      "expo-router",
+      [
+        "expo-local-authentication",
+        {
+          faceIDPermission: "Allow $(PRODUCT_NAME) to use Face ID.",
+        },
+      ],
+    ],
   },
 };
